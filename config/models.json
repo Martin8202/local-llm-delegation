@@ -1,0 +1,35 @@
+{
+  "default_profile": "inkling-2-mini-q8",
+  "profiles": {
+    "inkling-2-mini-q8": {
+      "description": "llama.cpp b12723 CUDA ARM64 本機服務（預設）",
+      "base_url": "http://127.0.0.1:8080/v1",
+      "health_url": "http://127.0.0.1:8080/health",
+      "model": "inkling-2-mini-q8",
+      "api_key": "",
+      "default_reasoning_effort": "low",
+      "supports_reasoning_effort": true,
+      "timeout_sec": 300
+    },
+    "ollama-local": {
+      "description": "Ollama OpenAI 相容端點範本（更換模型時可直接修改 model 名稱）",
+      "base_url": "http://127.0.0.1:11434/v1",
+      "health_url": "http://127.0.0.1:11434/v1/models",
+      "model": "qwen2.5:14b",
+      "api_key": "ollama",
+      "default_reasoning_effort": null,
+      "supports_reasoning_effort": false,
+      "timeout_sec": 120
+    },
+    "custom-openai-compatible": {
+      "description": "任意 OpenAI 相容地端引擎（vLLM / LM Studio / 其他 llama-server）",
+      "base_url": "http://127.0.0.1:18434/v1",
+      "health_url": "http://127.0.0.1:18434/v1/models",
+      "model": "Qwen3.8-27B-UD-Q4_K_M",
+      "api_key": "",
+      "default_reasoning_effort": "medium",
+      "supports_reasoning_effort": true,
+      "timeout_sec": 120
+    }
+  }
+}

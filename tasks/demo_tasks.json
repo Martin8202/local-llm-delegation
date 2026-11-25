@@ -1,0 +1,23 @@
+{
+  "description": "方法二示範任務：由雲端規劃規格，派發給本機模型執行，最後由測試腳本驗收",
+  "tasks": [
+    {
+      "id": "code_markdown_table_parser",
+      "title": "實作 Markdown 表格解析函式",
+      "reasoning_effort": "minimal",
+      "temperature": 0.2,
+      "max_tokens": 2048,
+      "system": "你是精準的 Python 工程師。只輸出一個 ```python 程式碼區塊，不要附加額外說明。",
+      "prompt": "請實作一個純 Python 標準庫函式 `parse_markdown_table(md: str) -> list[dict[str, str]]`。\n規格：\n1. 傳入包含標準 GitHub Flavored Markdown 表格的字串（第一行為表頭，第二行為分隔線如 |---|---|，第三行起為資料列）。\n2. 去除每個儲存格前後空白。\n3. 忽略表格前後的空行與非表格行。\n4. 若沒有有效表格或沒有資料列，回傳空串列 `[]`。\n5. 只需定義 `parse_markdown_table` 函式，不需外部套件。"
+    },
+    {
+      "id": "structured_incident_summary",
+      "title": "結構化事件摘要（繁體中文 JSON）",
+      "reasoning_effort": "minimal",
+      "temperature": 0.1,
+      "max_tokens": 2048,
+      "system": "你是技術文件整理專家。只輸出合法的 JSON 物件，不要加 markdown code fence 或其他文字。",
+      "prompt": "請將以下事件紀錄整理成 JSON，包含三個欄位：`summary`（一句話繁體中文摘要）、`root_cause`（根本原因）、`action_items`（字串陣列，列出 2 項後續行動）。\n\n事件紀錄：\n2026-11-25 晚間使用 Ollama 0.40.18 載入 Inkling-2-Mini Q8_0 時，系統顯示 100% CPU 執行且對話 API 只回傳 1 個 token 就結束。排查後發現原因是 Ollama 未套用模型內建的 Jinja 對話範本，且未啟用 Blackwell ARM64 CUDA 加速。改用 llama.cpp b12723 CUDA ARM64 版本搭配 --jinja 與 -ngl 999 後，全部 49 層皆載入 GPU，生成速度達 23 tokens/s 且工具呼叫正常。"
+    }
+  ]
+}
